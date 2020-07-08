@@ -17,6 +17,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest   
     # Steps represent a sequence of tasks that will be executed as part of the job
+    if: ${{ github.event_name == 'pull_request' && github.event.action == 'closed' }}
     steps:
      # - name: My first step
       #  if: ${{ github.event_name == 'pull_request' && github.event.action == 'unassigned' }}
@@ -25,5 +26,5 @@ jobs:
       - name: Running CI
         uses: muinmomin/webhook-action@v1.0.0
         with:
-          url: "http://0149a44cdda1.ngrok.io/api/webhooks/triggers/build"
-          data: '{"value": "${{ github.event_path }}"}'
+          url: "http://0149a44cdda1.ngrok.io/api/webhooks/githubActions/triggers/build"
+          data: '{"value": "${{ github.event.action }}"}'
