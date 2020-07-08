@@ -25,5 +25,5 @@ jobs:
       - name: Running CI
         uses: muinmomin/webhook-action@v1.0.0
         with:
-          url: "http://0149a44cdda1.ngrok.io/webhooks/sources/triggers/build"
+          url: "http://0149a44cdda1.ngrok.io/api/webhooks/triggers/build"
           data: '{"value": "${{ github.event_path }}"}'
