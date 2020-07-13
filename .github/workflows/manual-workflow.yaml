@@ -1,15 +1,11 @@
-name: manualworkflow
+name: ProdRelease
 on: 
   workflow_dispatch:
     inputs:
       releaseCard:
         description: 'Release card'     
         required: true
-        default: 'warning'
-      envToDeploy:
-        description: 'Environment' 
-        required: true
-        default: 'warning'
+        default: ''
         
 jobs:
   printInputs:
