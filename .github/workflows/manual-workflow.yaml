@@ -5,7 +5,6 @@ on:
       releaseCard:
         description: 'Release card'     
         required: true
-        default: ''
         
 jobs:
   printInputs:
@@ -13,4 +12,3 @@ jobs:
     steps:
     - run: |
         echo "Log level: ${{ github.event.inputs.releaseCard }}"
-        echo "Tags: ${{ github.event.inputs.envToDeploy }}" 
