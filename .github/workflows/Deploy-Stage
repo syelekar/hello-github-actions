@@ -1,0 +1,22 @@
+name: StageRelease
+on: 
+  workflow_dispatch:
+    inputs:
+      releaseCard:
+        description: 'Release card'     
+        required: true
+        
+jobs:
+  StageRelease:
+    runs-on: ubuntu-latest
+    steps:
+      - id: step1
+      - name: Deploy QA
+        uses: fjogeleit/http-request-action@master
+        with:
+          url: 'https://ff286418df67.ngrok.io/api/webhooks/gitactions/triggers/qa/123'
+          method: 'POST'
+          
+      - id: step2
+      - run:
+        echo "Log level: ${{ Steps.step1.outputs.response }}"
