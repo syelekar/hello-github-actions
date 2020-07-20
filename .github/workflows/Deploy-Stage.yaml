@@ -18,5 +18,5 @@ jobs:
           method: 'POST'
           
       - id: step2
-      - run:
-        echo "Log level: ${{ Steps.step1.outputs.response }}"
+      - run: |
+          echo "Log level: ${{ Steps.step1.outputs.response }}"
