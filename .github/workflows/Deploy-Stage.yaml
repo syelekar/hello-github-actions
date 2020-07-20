@@ -10,7 +10,6 @@ jobs:
   StageRelease:
     runs-on: ubuntu-latest
     steps:
-      - id: step1
       - name: Deploy QA
         uses: fjogeleit/http-request-action@master
         with:
