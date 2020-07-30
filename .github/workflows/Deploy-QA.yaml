@@ -13,5 +13,5 @@ jobs:
       - name: Deploy QA
         uses: fjogeleit/http-request-action@master
         with:
-          url: 'https://9d54fd5f6fe9.ngrok.io/api/webhooks/gitactions/triggers/qa/123'
+          url: 'https://0f887b526a96.ngrok.io/api/webhooks/gitactions/triggers/qa/123'
           method: 'POST'
