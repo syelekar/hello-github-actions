@@ -8,7 +8,12 @@ on:
         
 jobs:
   printInputs:
+    name: Dispatch to `other-repo`
     runs-on: ubuntu-latest
     steps:
-    - run: |
-        echo "Log level: ${{ github.event.inputs.releaseCard }}"
+      - name: ExecuteTrigger
+          uses: fjogeleit/http-request-action@master
+          with:
+            url: 'https://9dca4b367114.ngrok.io/api/projects/SDLC-GitFlow/apps/static-branch-demo/webhooks/github/cicd/notify'
+            method: 'POST'
+            data: '{"issueId": "${{ github.event.inputs.releaseCard }}"}'
