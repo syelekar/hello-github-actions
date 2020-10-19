@@ -2,8 +2,11 @@ name: TriggerWorkflow12
 on: 
   workflow_dispatch:
     inputs:
-      releaseCard:
+      ReleaseCard:
         description: 'Release card'     
+        required: true
+      Environment:
+        description: 'QA or Stage or Prod'
         required: true
         
 jobs:
@@ -17,6 +20,6 @@ jobs:
     - name: Webhook12
       uses: fjogeleit/http-request-action@master
       with:
-        url: 'https://9dca4b367114.ngrok.io/api/projects/SDLC-GitFlow/apps/static-branch-demo/webhooks/github/cicd/notify'
+        url: 'https://64fa1a12696e.ngrok.io/api/projects/SDLC-GitFlow/apps/static-branch-demo/webhooks/github/cicd/notify'
         method: 'POST'
-        data: '{"issueId": "${{ github.event.inputs.releaseCard }}"}'
+        data: '{"issueId": "${{ github.event.inputs.ReleaseCard }}", "Branch": "${{ github.event.inputs.Branch }}", "Workflow": "Deploy", "Env": "${{ github.event.inputs.Environment }}"}'
