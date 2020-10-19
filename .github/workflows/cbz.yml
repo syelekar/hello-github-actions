@@ -16,7 +16,7 @@ jobs:
     # Runs a single command using the runners shell
     - name: Webhook12
       uses: fjogeleit/http-request-action@master
-          with:
-            url: 'https://9dca4b367114.ngrok.io/api/projects/SDLC-GitFlow/apps/static-branch-demo/webhooks/github/cicd/notify'
-            method: 'POST'
-            data: '{"issueId": "${{ github.event.inputs.releaseCard }}"}'
+      with:
+        url: 'https://9dca4b367114.ngrok.io/api/projects/SDLC-GitFlow/apps/static-branch-demo/webhooks/github/cicd/notify'
+        method: 'POST'
+        data: '{"issueId": "${{ github.event.inputs.releaseCard }}"}'
